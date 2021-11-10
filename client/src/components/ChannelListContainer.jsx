@@ -7,7 +7,7 @@ import LogoutIcon from "../assets/logout.png";
 import ChannelSearch from "./ChannelSearch";
 import TeamChannelList from "./TeamChannelList";
 import TeamChannelPreview from "./TeamChannelPreview";
-
+ 
 const SideBar = () => (
   <div className="channel-list__sidebar">
     <div className="channel-list__sidebar__icon1">

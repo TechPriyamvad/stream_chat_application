@@ -26,6 +26,7 @@ function TeamChannelList({ children, error = false, loading, type }) {
         <p className="team-channel-list__header__title">
           {type === "team" ? "Channels" : "Direct Messages"}
         </p>
+        {/* todo: add channel */}
       </div>
       {children}
     </div>
