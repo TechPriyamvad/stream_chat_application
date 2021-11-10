@@ -35,6 +35,45 @@ const signup = async (req, res) => {
   }
 };
 
-const login = (req, res) => {};
+// *what will happen when user login
+const login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // *client connection to stream
+    const serverClient = connect(api_key, api_secret, app_id);
+
+    // *getting instance of StreamChat
+    const client = StreamChat.getInstance(api_key, api_secret);
+
+    // *finding users with given username
+    const { users } = await client.queryUsers({ name: username });
+
+    // *check whether user exists with given username
+    if (!users.length)
+      return res.status(400).json({ message: "User not found" });
+
+    // *checking password with password given by user during signup
+    const success = await bcrypt.compare(password, users[0], hashedPassword);
+
+    // *generating token for login user
+    const token = serverClient.createUserToken(users[0].id);
+
+    // *user authenticated
+    if (success) {
+      res.status(200).json({
+        token,
+        fullName: users[0].fullName,
+        username,
+        userId: users[0].id,
+      });
+    } else {
+      res.status(500).json({ message: "Incorrect password" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error });
+  }
+};
 
 module.exports = { signup, login };
