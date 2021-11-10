@@ -1,22 +1,24 @@
 import React, { useState } from "react";
-import signinImage from '../assets/signup.jpg'
-const initialState={
-  fullName:'',
-  username:'',
-  password:'',
-  confirmPassword:'',
-  phoneNumber:'',
-  avatarURL:'',
-}
+import signinImage from "../assets/signup.jpg";
+const initialState = {
+  fullName: "",
+  username: "",
+  password: "",
+  confirmPassword: "",
+  phoneNumber: "",
+  avatarURL: "",
+};
 function Auth() {
   const [isSignup, setIsSignup] = useState(false);
-  const [form,setForm] = useState(initialState)
+  const [form, setForm] = useState(initialState);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form)
+    console.log(form);
   };
-  const handleChange = (e) => {setForm({...form,[e.target.name]:e.target.value})};
-  const switchMode = ()=>{}
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const switchMode = () => {};
 
   return (
     <div className="auth__form-container">
