@@ -8,10 +8,10 @@ const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+
 //to get data in backend from frontend in json format
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(cors())
 
 app.get("/", (req, res) => {
   res.send("CHAT APPLICATION");

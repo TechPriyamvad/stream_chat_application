@@ -2,6 +2,7 @@ const { connect } = require("getstream");
 const bcrypt = require("bcrypt");
 const StreamChat = require("stream-chat").StreamChat;
 const crypto = require("crypto");
+require("dotenv").config();
 
 //accessing data from env file
 const api_key = process.env.STREAM_API_KEY;
@@ -10,6 +11,7 @@ const app_id = process.env.STREAM_APP_ID;
 
 // what will happen when user signup
 const signup = async (req, res) => {
+  console.log('s');
   try {
     // *extract signup form data coming from frontend
     const { fullName, username, password, phoneNumber } = req.body;
