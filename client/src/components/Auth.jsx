@@ -28,7 +28,7 @@ function Auth() {
       const URL = "http://localhost:5000/auth";
       console.log('h');
       // *sending signup form data to server using axios library
-      // !data not going from frontend to backend
+      // !login functionality not working
       const {
         data: { token, userId, hashedPassword, fullName },
       } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
