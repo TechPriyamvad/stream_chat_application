@@ -26,7 +26,7 @@ function Auth() {
       const { username, password, phoneNumber, avatarURL } = form;
 
       const URL = "http://localhost:5000/auth";
-      console.log('h');
+      console.log(isSignup);
       // *sending signup form data to server using axios library
       // !login functionality not working
       const {
@@ -53,7 +53,7 @@ function Auth() {
 
       window.location.reload();
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 

@@ -57,7 +57,7 @@ const login = async (req, res) => {
       return res.status(400).json({ message: "User not found" });
 
     // *checking password with password given by user during signup
-    const success = await bcrypt.compare(password, users[0], hashedPassword);
+    const success = await bcrypt.compare(password, users[0].hashedPassword);
 
     // *generating token for login user
     const token = serverClient.createUserToken(users[0].id);

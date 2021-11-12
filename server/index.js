@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors())
 
 app.get("/", (req, res) => {
-  res.send("CHAT APPLICATION");
+  res.send('backend server running');
 });
 
 app.use("/auth", authRoutes);
